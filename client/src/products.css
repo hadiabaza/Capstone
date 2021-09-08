@@ -1,0 +1,8 @@
+.product-card {
+  display: inline-block;
+  border: 2px solid gray;
+  width: 300px;
+}
+.product-card img {
+  max-width: 100%;
+}
