@@ -1,0 +1,12 @@
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 5px;
+  /* flex-direction: column; */
+}
+
+.nav .logo {
+  margin-right: auto;
+  font-family: "Glory", sans-serif;
+  color: blue;
+}

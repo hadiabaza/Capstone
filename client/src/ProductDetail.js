@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./products.css";
 
-function ProductDetail() {
+function ProductDetail({ setCart, isLoading, setIsLoading, error, setError }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,7 +18,7 @@ function ProductDetail() {
       }
       setIsLoading(false);
     });
-  }, [id]);
+  }, [id, setIsLoading, setError]);
 
   const handleAddToCart = () => {
     fetch("/cart/add", {
@@ -27,7 +27,7 @@ function ProductDetail() {
       body: JSON.stringify({ product_id: id, quantity: 1 }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then(console.log);
+        r.json().then((cart) => setCart(cart));
       }
     });
   };
@@ -38,10 +38,13 @@ function ProductDetail() {
     return error;
   } else if (product) {
     return (
-      <div>
-        <h3>{product.title}</h3>
-        <p>${product.price / 100}</p>
-        <img src={product.image} alt={product.title} />
+      <div className="prodcts-list">
+        <div className="product-card">
+          <h3>{product.title}</h3>
+          <p>${product.price / 100}</p>
+          <img className="spin" src={product.image} alt={product.title} />
+          <p>{product.description}</p>
+        </div>
         <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
     );

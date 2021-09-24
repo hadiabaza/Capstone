@@ -1,8 +1,35 @@
 .product-card {
   display: inline-block;
   border: 2px solid gray;
+  text-align: center;
+  display: inline-block;
+  border: black solid 2px;
+  padding: 15px;
+  margin: 10px;
   width: 300px;
+  height: auto;
+  background-color: rgb(221, 247, 255);
+  margin-top: 10px;
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.1);
+  font-family: "Glory", sans-serif;
+}
+.product desc {
+  text-align: center;
 }
 .product-card img {
-  max-width: 100%;
+  max-width: 80%;
+  border-radius: 50%;
+}
+
+button {
+  display: block;
+}
+
+body {
+  color: blue;
+  background-color: skyblue;
+}
+
+.card {
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.1);
 }

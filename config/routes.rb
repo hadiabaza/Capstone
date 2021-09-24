@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   post '/login', to: 'session#create'
   post '/signup', to: 'user#signup'
   delete '/logout', to: 'session#destroy'
+  get '/show', to: 'shopping_cart#show'
+  delete '/cart/remove', to: 'shopping_cart#remove_from_cart'
+  get '/checkout', to: 'shopping_cart#checkout'
 end

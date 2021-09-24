@@ -8,7 +8,7 @@ function Login({ setUser }) {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState("");
 
-  console.log({ setUser });
+  // console.log({ setUser });
   const handleLogin = (event) => {
     event.preventDefault();
     fetch("/login", {
